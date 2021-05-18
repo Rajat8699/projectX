@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTests } from "../../redux-toolkit/test1/testSlice";
 import { Container, Form, Button, Card, Row, Col } from "react-bootstrap";
-import "./homepage.scss";
+import "./Login.scss";
 import { Link } from "react-router-dom";
+import { getTests } from "../../../redux-toolkit/test1/testSlice";
 
-const HomePage = () => {
+const Login = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -25,7 +25,7 @@ const HomePage = () => {
           <Row>
             <h5>Welcome back!</h5>
             <p>
-              Create an account?<Link>Sign up</Link>
+              Create an account?<Link to='/signup'>Sign up</Link>
             </p>
           </Row>
           <Form>
@@ -41,6 +41,9 @@ const HomePage = () => {
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
+            <Form.Text className='ml-auto'>
+                <Link to='/forgot-password'>Forgot Password?</Link>
+            </Form.Text>
             </Form.Group>
             </div>
             <Button type="submit" variant="primary" size="sm" block>
@@ -72,4 +75,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Login;

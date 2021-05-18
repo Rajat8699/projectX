@@ -1,7 +1,9 @@
 import React,{useEffect} from 'react'
 import './custom.scss';
 import {BrowserRouter,Switch,Route} from 'react-router-dom'
-import HomePage from './pages/HomePage/HomePage';
+import Login from './pages/Auth/Login/Login';
+import SignUp from './pages/Auth/Signup/Signup';
+import ForgetPassword from './pages/Auth/ForgetPassword/ForgetPassword';
  
 
 const App = ()=>{
@@ -9,7 +11,9 @@ const App = ()=>{
     <div >
       <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={HomePage}/>
+        <Route exact path='/' component={Login}/>
+        <Route exact path='/signup' component={SignUp}/>
+        <Route exact path='/forgot-password' component={ForgetPassword}/>
       </Switch>
       </BrowserRouter>
     </div>
