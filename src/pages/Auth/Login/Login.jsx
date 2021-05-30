@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Form, Button, Card, Row, Col } from "react-bootstrap";
 import "./Login.scss";
@@ -15,6 +15,17 @@ const Login = () => {
     dispatch(getTests());
   }, []);
 
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
   return (
     <Container
       fluid
@@ -31,16 +42,24 @@ const Login = () => {
               Create an account? <Link to='/signup'>Sign up</Link>
             </p>
           </Row>
-          <Form>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <div className='py-3'>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email"  size="sm"/>
+              <Form.Control type="email" placeholder="Enter email"  size="sm" required/>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+              Please enter email.
+            </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password"  size="sm"/>
+              <Form.Control type="password" placeholder="Password"  size="sm" required/>
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please enter password.
+            </Form.Control.Feedback>
             <Form.Text className='ml-auto'>
                 <Link to='/forgot-password'>Forgot Password?</Link>
             </Form.Text>

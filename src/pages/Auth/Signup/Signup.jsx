@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Form, Row, Button, Card, Col } from "react-bootstrap";
-import {FcGoogle} from 'react-icons'
 import "./Signup.scss";
 import { Link } from "react-router-dom";
+import {FcGoogle} from 'react-icons/fc';
+import { FaFacebookSquare } from "react-icons/fa";
+import { googleLogin,facebookLogin } from "../../../firebase/firebase";
 
 const SignUp = () => {
   return (
@@ -11,7 +13,7 @@ const SignUp = () => {
       fluid
       className="d-flex align-items-center justify-content-center auth-page"
     >
-      <Card style={{ width: "30rem" }}>
+      <Card style={{ width: "25rem" }}>
         <Card.Body>
           <Row>
             <h4>LOGO</h4>
@@ -23,29 +25,37 @@ const SignUp = () => {
             </p>
           </Row>
           <Form>
-            <Row className="py-2">
-              <Form.Group as={Col} controlId="formBasicName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter Name" size='sm'/>
+            <Row className="py-2 g-2">
+              <Col md>
+              <Form.Group controlId="formBasicFirstname">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control type="text" placeholder="First Name" size='sm'/>
               </Form.Group>
-              <Form.Group as={Col} controlId="formBasicUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Username" size='sm'/>
+              </Col>
+              <Col md>
+              <Form.Group controlId="formBasicLastname">
+                <Form.Label>Last name</Form.Label>
+                <Form.Control type="text" placeholder="Last name" size='sm'/>
               </Form.Group>
+              </Col>
             </Row>
             <Form.Group controlId="formBasicEmail" className="py-2">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" placeholder="Enter email" size='sm'/>
             </Form.Group>
-            <Row className="py-2">
-              <Form.Group as={Col} controlId="formBasicPassword">
+            <Row className="py-2 g-2">
+              <Col md>
+              <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" size='sm'/>
               </Form.Group>
-              <Form.Group as={Col} controlId="formBasicConfirmPassword">
+              </Col>
+              <Col md>
+              <Form.Group controlId="formBasicConfirmPassword">
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control type="password" placeholder="Confirm Password" size='sm'/>
               </Form.Group>
+              </Col>
             </Row>
             <Button
               type="submit"
@@ -69,12 +79,12 @@ const SignUp = () => {
             </Col>
           </Row>
           <Row>
-            <Col>
-              <Button size="sm"> Google</Button>
-            </Col>
-            <Col>
-              <Button size="sm">Facebook</Button>
-            </Col>
+              <Col>
+                <Button size="sm" onClick={googleLogin} variant='light' className="shadow-sm"><FcGoogle/> Sign in with Google</Button>
+              </Col>
+              <Col>
+                <Button size="sm" onClick={facebookLogin} variant='info'><FaFacebookSquare/> Sign in with Facebook</Button>
+              </Col>
           </Row>
         </Card.Body>
       </Card>
