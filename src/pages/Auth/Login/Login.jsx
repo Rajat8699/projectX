@@ -4,6 +4,9 @@ import { Container, Form, Button, Card, Row, Col } from "react-bootstrap";
 import "./Login.scss";
 import { Link } from "react-router-dom";
 import { getTests } from "../../../redux-toolkit/test1/testSlice";
+import {FcGoogle} from 'react-icons/fc';
+import { FaFacebookSquare } from "react-icons/fa";
+import { facebookLogin, googleLogin, signInWithGoogle } from "../../../firebase/firebase";
 
 const Login = () => {
   const state = useSelector((state) => state);
@@ -25,22 +28,19 @@ const Login = () => {
           <Row>
             <h5>Welcome back!</h5>
             <p>
-              Create an account?<Link to='/signup'>Sign up</Link>
+              Create an account? <Link to='/signup'>Sign up</Link>
             </p>
           </Row>
           <Form>
             <div className='py-3'>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
+              <Form.Control type="email" placeholder="Enter email"  size="sm"/>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password"  size="sm"/>
             <Form.Text className='ml-auto'>
                 <Link to='/forgot-password'>Forgot Password?</Link>
             </Form.Text>
@@ -62,10 +62,10 @@ const Login = () => {
             </Row>
             <Row>
               <Col>
-                <Button size="sm">Google</Button>
+                <Button size="sm" onClick={googleLogin} variant='light' className="shadow-sm"><FcGoogle/> Sign in with Google</Button>
               </Col>
               <Col>
-                <Button size="sm">Facebook</Button>
+                <Button size="sm" onClick={facebookLogin} variant='info'><FaFacebookSquare/> Sign in with Facebook</Button>
               </Col>
             </Row>
           </Form>

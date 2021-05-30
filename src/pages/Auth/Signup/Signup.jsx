@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Form, Row, Button, Card, Col } from "react-bootstrap";
+import {FcGoogle} from 'react-icons'
 import "./Signup.scss";
 import { Link } from "react-router-dom";
 
@@ -18,32 +19,32 @@ const SignUp = () => {
           <Row>
             <h5>Welcome to Dash</h5>
             <p>
-              Already have an account?<Link to="/">Sign in</Link>
+              Already have an account? <Link to="/">Sign in</Link>
             </p>
           </Row>
           <Form>
-            <Row>
+            <Row className="py-2">
               <Form.Group as={Col} controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter Name" />
+                <Form.Control type="text" placeholder="Enter Name" size='sm'/>
               </Form.Group>
               <Form.Group as={Col} controlId="formBasicUsername">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Username" />
+                <Form.Control type="text" placeholder="Username" size='sm'/>
               </Form.Group>
             </Row>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group controlId="formBasicEmail" className="py-2">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control type="email" placeholder="Enter email" size='sm'/>
             </Form.Group>
-            <Row>
+            <Row className="py-2">
               <Form.Group as={Col} controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password" placeholder="Password" size='sm'/>
               </Form.Group>
               <Form.Group as={Col} controlId="formBasicConfirmPassword">
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type="password" placeholder="Confirm Password" />
+                <Form.Control type="password" placeholder="Confirm Password" size='sm'/>
               </Form.Group>
             </Row>
             <Button
@@ -69,7 +70,7 @@ const SignUp = () => {
           </Row>
           <Row>
             <Col>
-              <Button size="sm">Google</Button>
+              <Button size="sm"> Google</Button>
             </Col>
             <Col>
               <Button size="sm">Facebook</Button>
