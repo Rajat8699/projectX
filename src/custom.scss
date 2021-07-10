@@ -1,14 +1,10 @@
-// $body:(
-//     font-size: 12px
-// );
-
-
+$font-family-base:'Nunito',font-sans-serif;
 $primary:#4DD4B1;
 $warning:#FFB74D;
 $info:#5197DD;
 $success:#70BF73;
 $danger:#F65F54;
 
-
 /* import bootstrap to set changes */
 @import "~bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');

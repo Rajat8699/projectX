@@ -29,7 +29,7 @@ const ForgetPassword = () => {
               <Form.Control type="email" placeholder="Enter email" />
             </Form.Group>
             </div>
-            <Button type="submit" variant="primary" size="sm" block>
+            <Button type="submit" size="sm" block>
               Submit
             </Button>
           </Form>

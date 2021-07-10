@@ -59,7 +59,6 @@ const SignUp = () => {
             </Row>
             <Button
               type="submit"
-              variant="primary"
               size="sm"
               block
               className="mt-3"
@@ -80,10 +79,10 @@ const SignUp = () => {
           </Row>
           <Row>
               <Col>
-                <Button size="sm" onClick={googleLogin} variant='light' className="shadow-sm"><FcGoogle/> Sign in with Google</Button>
+                <Button onClick={googleLogin} variant='light' className="shadow-sm"><FcGoogle/> Sign in with Google</Button>
               </Col>
               <Col>
-                <Button size="sm" onClick={facebookLogin} variant='info'><FaFacebookSquare/> Sign in with Facebook</Button>
+                <Button onClick={facebookLogin} variant='info'><FaFacebookSquare/> Sign in with Facebook</Button>
               </Col>
           </Row>
         </Card.Body>

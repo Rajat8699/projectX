@@ -60,12 +60,12 @@ const Login = () => {
             <Form.Control.Feedback type="invalid">
               Please enter password.
             </Form.Control.Feedback>
-            <Form.Text className='ml-auto'>
+            <Form.Text>
                 <Link to='/forgot-password'>Forgot Password?</Link>
             </Form.Text>
             </Form.Group>
             </div>
-            <Button type="submit" variant="primary" size="sm" block>
+            <Button type="submit" size="sm" block>
               Submit
             </Button>
             <Row className="py-2">
@@ -81,10 +81,10 @@ const Login = () => {
             </Row>
             <Row>
               <Col>
-                <Button size="sm" onClick={googleLogin} variant='light' className="shadow-sm"><FcGoogle/> Sign in with Google</Button>
+                <Button size="sm" onClick={googleLogin} variant='light' className="shadow-sm"> Sign in with &nbsp;<FcGoogle/></Button>
               </Col>
               <Col>
-                <Button size="sm" onClick={facebookLogin} variant='info'><FaFacebookSquare/> Sign in with Facebook</Button>
+                <Button  size="sm" onClick={facebookLogin} variant='secondary'> Sign in with <FaFacebookSquare/></Button>
               </Col>
             </Row>
           </Form>
